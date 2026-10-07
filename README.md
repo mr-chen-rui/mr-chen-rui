@@ -4,6 +4,8 @@
 
 ## I make cool projects and post them here!
 
+**No output from generative LLMS is ever used in my work**
+
 Check out my personal site!
 (Coming Soon)
 
