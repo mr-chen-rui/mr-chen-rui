@@ -10,10 +10,9 @@ header{
     text-align: center;
 }
 
-body{
+main{
     margin:0;
     height:100%;
-    size:1;
     background-image: linear-gradient(to top right,navy,blue);
     border:1px solid white;
     border-radius: 5px;
