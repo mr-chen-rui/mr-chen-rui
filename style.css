@@ -1,0 +1,13 @@
+html{
+    color:white;
+    background-color: lightblue;
+}
+
+header{
+    background-color: navy;
+    text-align: center;
+}
+
+body{
+    background-image: linear-gradient(45,navy,blue);
+}
