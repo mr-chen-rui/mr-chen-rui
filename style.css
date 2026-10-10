@@ -1,5 +1,6 @@
 body{
     height: 100%;
+    margin:0;
 }
 
 html{
@@ -8,19 +9,42 @@ html{
     height:100%;
 }
 
+#stars{
+    margin:0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
 header{
     margin:0;
     height: 20%;
-    background-color: navy;
+    background-image: linear-gradient(to top right, #040c24, #3d0069);
+
+    
     text-align: center;
+    font-size: 500%;
+}
+
+.center{
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 100%;
+    padding: 0;
+    margin:0;
 }
 
 main{
     margin:0;
     min-height:100%;
-    background-image: linear-gradient(to top right,navy,blue);
-    border:1px solid white;
-    border-radius: 5px;
+    background-image: linear-gradient(to top right,transparent ,blue);
 }
 
 footer{
