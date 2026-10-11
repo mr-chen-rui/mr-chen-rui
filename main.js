@@ -5,9 +5,13 @@ const starCanvas = document.getElementById("stars")
 const main = document.getElementsByTagName("main")[0]
 const header = document.getElementsByTagName("header")[0]
 const html = document.getElementsByTagName("html")[0]
+
 const particleImage = new Image()
-const linkLength = 100
 particleImage.src = "particle.png"
+
+const particleImageBlue = new Image()
+particleImageBlue.src = "particleblue.png"
+const linkLength = 100
 
 var mousex = 0
 var mousey = 0
@@ -52,7 +56,13 @@ function drawStars(delta){
     for (var j = 0; j < particles.length; j++){
         var p1 = particles[j]
         p1.y -= p1.velocityy * delta;
-        ctx.drawImage(particleImage, p1.x, p1.y)
+
+        if (p1.image){
+            ctx.drawImage(particleImage, p1.x, p1.y)
+        }
+        else{
+            ctx.drawImage(particleImageBlue, p1.x, p1.y)
+        }
         if (p1.y <= -10){
 
             particles[j] = new Particle(false)
@@ -95,6 +105,8 @@ class Particle{
             this.y = starCanvasSizeY
         }
         this.velocityy = Math.max(Math.random() * 50, 25)
+
+        this.image = Math.random() >= 0.5
     }
 }
 
