@@ -5,18 +5,19 @@ body{
 
 html{
     color:white;
-    background-color: #040C24;
-    height:100%;
+    background-image: linear-gradient(to bottom left, #0a205a, #040c24);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
 }
 
 #stars{
     margin:0;
     padding: 0;
-    height: 100%;
-    width: 100%;
     position:absolute;
     top:0;
     left:0;
+    background-color: transparent;
 }
 
 header{
