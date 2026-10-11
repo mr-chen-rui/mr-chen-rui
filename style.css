@@ -26,8 +26,7 @@ header{
     border-radius: 20px;
 
     height: 20%;
-    background-image: linear-gradient(to top right, #040c24, #3d0069);
-
+    background-image: linear-gradient(to top right, #040c2499, #3d006999); /* Extra 99 at the end makes it 60% transparent */
     
     text-align: center;
     font-size: 500%;
@@ -39,6 +38,22 @@ header{
     justify-content: center;
     align-items: center;
 
+}
+
+.HboxCenter{
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel{
+    min-width: calc(50% - 80px);
+    border: #0a205a solid 3px;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
 }
 
 .center h1{
@@ -53,6 +68,14 @@ main{
 
     min-height:100%;
     background-image: linear-gradient(to top right,transparent ,blue);
+}
+
+p{
+    color: #A0A0A0;
+}
+
+p b{
+    color: #339cde;
 }
 
 footer{
@@ -91,6 +114,7 @@ White
 #FFFFFF
 
 Blues (light to dark)
+#339cde
 #3A4C7A
 #0A205A
 #040C24
