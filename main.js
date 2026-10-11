@@ -9,9 +9,13 @@ const particleImage = new Image()
 const linkLength = 100
 particleImage.src = "particle.png"
 
+var mousex = 0
+var mousey = 0
+
 var particles = []
 
 function resizeScreen(){
+    console.log("Reloaded Page!")
     starCanvas.setAttribute("width", html.clientWidth)
     starCanvas.setAttribute("height", main.clientHeight + header.clientHeight)
     starCanvasSizeX = starCanvas.clientWidth
@@ -23,17 +27,25 @@ function resizeScreen(){
         p = new Particle(true)
         particles.push(p)
     }
-
-
 }
 
 window.onresize = resizeScreen;
+onfocus = resizeScreen;
 
 function getDistance(ax, ay, bx, by){
     return Math.sqrt(Math.pow(ax-bx,2)+Math.pow(ay-by, 2))
 }
 
+function handleMouseMove(event){
+    event = event || window.event
+    mousex = event.pageX
+    mousey = event.pageY
+}
+
+document.onmousemove = handleMouseMove
+
 function drawStars(delta){
+    
     const ctx = starCanvas.getContext("2d");
     ctx.clearRect(0,0,starCanvasSizeX,starCanvasSizeY);
 
@@ -60,6 +72,16 @@ function drawStars(delta){
                 ctx.stroke();
             }
         }
+
+        var dist = getDistance(p1.x,p1.y,mousex,mousey)
+        if (dist < linkLength){
+            ctx.strokeStyle =`rgba(255,255,255,${0.2+(1/linkLength)}`
+            ctx.beginPath()
+            ctx.moveTo(p1.x + 2,p1.y + 2)
+            ctx.lineTo(mousex,mousey)
+            ctx.stroke();
+        }
+
     }
 }
 
