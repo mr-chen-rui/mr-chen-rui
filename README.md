@@ -11,5 +11,4 @@ I do 3D modelling, code, and fiddle around with electronics in my free time! I a
 
 ### Check out my personal site!
 
-I'm making a personal site completely from scratch from pure HTML, CSS, and JavaScript. It'll take a while.
-(Coming Soon)
+I'm making a personal site completely from scratch from pure HTML, CSS, and JavaScript. Check it out [here](https://mr-chen-rui.github.io/mr-chen-rui/)
