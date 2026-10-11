@@ -4,13 +4,15 @@ var starCanvasSizeY = 0
 const starCanvas = document.getElementById("stars")
 const main = document.getElementsByTagName("main")[0]
 const header = document.getElementsByTagName("header")[0]
+const html = document.getElementsByTagName("html")[0]
 const particleImage = new Image()
+const linkLength = 100
 particleImage.src = "particle.png"
 
 var particles = []
 
 function resizeScreen(){
-    starCanvas.setAttribute("width", main.clientWidth)
+    starCanvas.setAttribute("width", html.clientWidth)
     starCanvas.setAttribute("height", main.clientHeight + header.clientHeight)
     starCanvasSizeX = starCanvas.clientWidth
     starCanvasSizeY = starCanvas.clientHeight
@@ -36,13 +38,27 @@ function drawStars(delta){
     ctx.clearRect(0,0,starCanvasSizeX,starCanvasSizeY);
 
     for (var j = 0; j < particles.length; j++){
-        var i = particles[j]
-        i.y -= i.velocityy * delta;
-        ctx.drawImage(particleImage, i.x, i.y)
-        if (i.y <= -10){
+        var p1 = particles[j]
+        p1.y -= p1.velocityy * delta;
+        ctx.drawImage(particleImage, p1.x, p1.y)
+        if (p1.y <= -10){
 
             particles[j] = new Particle(false)
 
+        }
+        for (var k = 0; k < particles.length; k++){
+            if (j == k){
+                continue
+            }
+            var p2 = particles[k]
+            var dist = getDistance(p1.x,p1.y,p2.x,p2.y)
+            if (dist < linkLength){
+                ctx.strokeStyle =`rgba(255,255,255,${0.1+(1/linkLength)}`
+                ctx.beginPath()
+                ctx.moveTo(p1.x + 2,p1.y + 2)
+                ctx.lineTo(p2.x + 2,p2.y + 2)
+                ctx.stroke();
+            }
         }
     }
 }
