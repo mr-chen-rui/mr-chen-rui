@@ -49,7 +49,7 @@ header{
 }
 
 .panel{
-    min-width: calc(50% - 80px);
+    flex: 1;
     border: #0a205a solid 3px;
     border-radius: 20px;
     margin: 20px;
