@@ -2,14 +2,26 @@ var starCanvasSizeX = 0
 var starCanvasSizeY = 0
 
 const starCanvas = document.getElementById("stars")
+const main = document.getElementsByTagName("main")[0]
+const header = document.getElementsByTagName("header")[0]
 const particleImage = new Image()
 particleImage.src = "particle.png"
 
 var particles = []
 
 function resizeScreen(){
+    starCanvas.setAttribute("width", main.clientWidth)
+    starCanvas.setAttribute("height", main.clientHeight + header.clientHeight)
     starCanvasSizeX = starCanvas.clientWidth
     starCanvasSizeY = starCanvas.clientHeight
+
+    particles = []
+
+    for (let i = 0; i < Math.floor(starCanvasSizeX*starCanvasSizeY*0.0001); i++){
+        p = new Particle(true)
+        particles.push(p)
+    }
+
 
 }
 
@@ -27,26 +39,26 @@ function drawStars(delta){
         ctx.drawImage(particleImage, i.x, i.y)
         if (i.y <= -10){
 
-            particles[j] = new Particle()
+            particles[j] = new Particle(false)
 
         }
     }
 }
 
 class Particle{
-    constructor(){
+    constructor(firstTime){
         this.x = Math.random() * starCanvasSizeX
-        this.y = Math.random() * starCanvasSizeY
-        this.velocityy = Math.max(Math.random()*0.1, 0.05)
+        if (firstTime){
+            this.y = Math.random() * starCanvasSizeY
+        }
+        else{
+            this.y = starCanvasSizeY
+        }
+        this.velocityy = Math.max(Math.random() * 50, 25)
     }
 }
 
 resizeScreen()
-
-for (let i = 0; i < 100; i++){
-    p = new Particle()
-    particles.push(p)
-}
 
 let start
 
@@ -55,6 +67,7 @@ function process(timestamp){
         start = timestamp
     }
     const deltaTime = (timestamp - start) * 0.001
+    start = timestamp
 
     drawStars(deltaTime)
 
