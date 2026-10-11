@@ -57,9 +57,33 @@ main{
 
 footer{
     bottom:0;
-    height:50px;
+    height:200px;
     background:black;
     
+}
+
+footer div{
+    padding: 20px;
+    color: #505050;
+}
+
+footer div b{
+    color: #AAAAAA;
+}
+
+.Hbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.Hbox a{
+    color: #505050;
+}
+
+.Hbox a:hover{
+    color:#A0A0A0;
 }
 /*
 Color Palette:
