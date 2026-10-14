@@ -121,6 +121,9 @@ function process(timestamp){
     const deltaTime = (timestamp - start) * 0.001
     start = timestamp
 
+    if (deltaTime>1){
+        resizeScreen()
+    }
     drawStars(deltaTime)
 
     requestAnimationFrame(process)
