@@ -71,6 +71,25 @@ nav ul li a:hover{
 
 }
 
+.gridContainer{
+    display:flex;
+    width: 100%;
+}
+
+.gridContainer div{
+    margin:20px;
+    width: calc(50%-40px);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 4px solid #0a205a;
+}
+
+.gridContainer div img{
+    width: 100%;
+    border-radius: 20px;
+}
+
 .HboxCenter{
     display: flex;
     padding: 20px;

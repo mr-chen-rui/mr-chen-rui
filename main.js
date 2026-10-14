@@ -7,10 +7,10 @@ const header = document.getElementsByTagName("header")[0]
 const html = document.getElementsByTagName("html")[0]
 
 const particleImage = new Image()
-particleImage.src = "particle.png"
+particleImage.src = "Assets/particle.png"
 
 const particleImageBlue = new Image()
-particleImageBlue.src = "particleblue.png"
+particleImageBlue.src = "Assets/particleblue.png"
 const linkLength = 100
 
 var mousex = 0
